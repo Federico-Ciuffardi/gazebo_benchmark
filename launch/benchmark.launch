@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find gazebo_benchmark)/worlds/benchmark.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/> 
+    <arg name="recording" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+
+   <include file="$(find p3dx_gazebo)/launch/p3dx.launch" >
+        <arg name="x"  value="0" />
+        <arg name="y"  value="-5" />
+        <arg name="z"  value="0.1" />
+        <arg name="ns" value="p3dx_1" />
+  </include>
+  <group ns="p3dx_1">
+    <node pkg="gazebo_benchmark" type="gazebo_benchmark_node" name="move_controller" required="true" />
+  </group>
+
+   <include file="$(find p3dx_gazebo)/launch/p3dx.launch" >
+        <arg name="x"  value="0" />
+        <arg name="y"  value="0" />
+        <arg name="z"  value="0" />
+        <arg name="ns" value="p3dx_2" />
+  </include>
+  <group ns="p3dx_2">
+    <node pkg="gazebo_benchmark" type="gazebo_benchmark_node" name="move_controller" required="true" />
+  </group>
+
+   <include file="$(find p3dx_gazebo)/launch/p3dx.launch" >
+        <arg name="x"  value="0" />
+        <arg name="y"  value="5" />
+        <arg name="z"  value="0" />
+        <arg name="ns" value="p3dx_3" />
+  </include>
+  <group ns="p3dx_3">
+    <node pkg="gazebo_benchmark" type="gazebo_benchmark_node" name="move_controller" required="true" />
+  </group>
+
+</launch>
