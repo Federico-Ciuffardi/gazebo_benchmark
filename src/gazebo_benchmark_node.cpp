@@ -18,8 +18,6 @@
 #include <ros/console.h>
 
 #include <utility>
-#include <webots_ros/set_float.h>
-#include <webots_ros/set_int.h>
 
 #include <math.h>
 #include <stdexcept>      // std::out_of_range
@@ -99,7 +97,6 @@ int main(int argc, char **argv) {
   ros::init(argc, argv, "benchmark_controller");
   ros::NodeHandle n;
   ros::Duration(5).sleep(); // first ROS_INFO_STREAM did not show on rqt_console and
-                            // also webots services failed otherwise 
 
   string ns = ros::this_node::getNamespace();
   ROS_INFO_STREAM("ns = " << ns);

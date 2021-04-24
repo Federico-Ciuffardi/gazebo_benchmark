@@ -8,7 +8,7 @@ project(gazebo_benchmark)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  roscpp webots_ros
+  roscpp
 )
 
 ## System dependencies are found with CMake's conventions
